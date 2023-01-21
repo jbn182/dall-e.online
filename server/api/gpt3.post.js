@@ -9,13 +9,13 @@ const openai = new OpenAIApi(configuration)
 export default defineEventHandler( async (event) => {
     const { textGPT } = await readBody(event);
 
-    const completion = await openai.createImage({
+    const images = await openai.createImage({
         prompt: textGPT,
         n: 1,
         size: "1024x1024",
     });
 
     return {
-        result: completion.data
+        result: images.data
     }
 })
