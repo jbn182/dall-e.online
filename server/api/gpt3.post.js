@@ -7,15 +7,15 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration)
 
 export default defineEventHandler( async (event) => {
-    const { textGPT } = await readBody(event);
+    var { textGPT } = await readBody(event);
 
-    const images = await openai.createImage({
+    var image = await openai.createImage({
         prompt: textGPT,
         n: 1,
         size: "1024x1024",
     });
 
     return {
-        result: images.data
+        result: image.data
     }
 })

@@ -36,7 +36,6 @@
                 })
                     .then((response) => response.json())
                     .then((imageBACK) => {
-                        console.log(imageBACK)
                         this.results = imageBACK.result;
                     });
             },
